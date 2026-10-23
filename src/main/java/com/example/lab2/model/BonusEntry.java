@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
+@Table(name = "bonus_entries")
 @Data
 public class BonusEntry {
     @Id
@@ -14,6 +15,8 @@ public class BonusEntry {
     @JoinColumn(name = "batch_id")
     private RecyclingBatch batch;
 
-    private Integer points; // количество баллов
-    private String status;  // статус начисления
+    private Integer points;
+
+    @Enumerated(EnumType.STRING)
+    private BonusStatus status;
 }

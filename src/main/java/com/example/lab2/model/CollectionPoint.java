@@ -5,14 +5,15 @@ import lombok.Data;
 import java.util.List;
 
 @Entity
+@Table(name = "collection_points")
 @Data
 public class CollectionPoint {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String address;      // адрес
-    private Boolean isAvailable; // доступность
-    private Double dailyLimit;   // суточный лимит массы
+    private String address;
+    private Boolean isAvailable;
+    private Double dailyLimit;
 
     @ManyToMany
     @JoinTable(
@@ -20,5 +21,5 @@ public class CollectionPoint {
             joinColumns = @JoinColumn(name = "point_id"),
             inverseJoinColumns = @JoinColumn(name = "type_id")
     )
-    private List<RecyclingType> acceptedTypes; // принимаемые виды
+    private List<RecyclingType> acceptedTypes;
 }

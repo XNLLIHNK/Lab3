@@ -5,6 +5,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "recycling_batches")
 @Data
 public class RecyclingBatch {
     @Id
@@ -23,9 +24,8 @@ public class RecyclingBatch {
     @JoinColumn(name = "type_id")
     private RecyclingType type;
 
-    private Double mass; // масса
+    private Double mass;
 
-    // Дата приёма задается сервером
     @Column(nullable = false, updatable = false)
     private LocalDateTime acceptanceDate;
 

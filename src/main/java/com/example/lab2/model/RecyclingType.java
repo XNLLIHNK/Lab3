@@ -4,12 +4,13 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
+@Table(name = "recycling_types")
 @Data
 public class RecyclingType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;        // название
-    private String unit;        // единица учёта
-    private Double pointsPerKg; // баллы за килограмм
+    private String name;
+    private String unit;
+    private Double pointsPerKg;
 }
